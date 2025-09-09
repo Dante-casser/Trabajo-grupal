@@ -1,0 +1,1160 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Ejercicios de JavaScript</title>
+</head>
+<body>
+  <h1>Ejercicios JavaScript</h1>
+  <h2>
+  <button onclick="ejercicio1()">Ejercicio 1</button>
+  <p id="ej1"></p>
+
+  <button onclick="ejercicio2()">Ejercicio 2</button>
+  <p id="ej2"></p>
+
+  <button onclick="ejercicio3()">Ejercicio 3</button>
+  <p id="ej3"></p>
+
+  <button onclick="ejercicio4()">Ejercicio 4</button>
+  <p id="ej4"></p>
+
+  <button onclick="ejercicio5()">Ejercicio 5</button>
+  <p id="ej5"></p>
+
+  <button onclick="ejercicio6()">Ejercicio 6</button>
+  <p id="ej6"></p>
+
+  <button onclick="ejercicio7()">Ejercicio 7</button>
+  <p id="ej7"></p>
+
+  <button onclick="ejercicio8()">Ejercicio 8</button>
+  <p id="ej8"></p>
+
+  <button onclick="ejercicio9()">Ejercicio 9</button>
+  <p id="ej9"></p>
+
+  <button onclick="ejercicio10()">Ejercicio 10</button>
+  <p id="ej10"></p>
+
+  <button onclick="ejercicio11()">Ejercicio 11</button>
+  <pre id="ej11"></pre>
+
+  <button onclick="ejercicio12()">Ejercicio 12</button>
+  <pre id="ej12"></pre>
+
+  <button onclick="ejercicio13()">Ejercicio 13</button>
+  <pre id="ej13"></pre>
+
+  <button onclick="ejercicio14()">Ejercicio 14</button>
+  <pre id="ej14"></pre>
+
+  <button onclick="ejercicio15()">Ejercicio 15</button>
+  <pre id="ej15"></pre>
+
+  <button onclick="ejercicio16()">Ejercicio 16</button>
+  <pre id="ej16"></pre>
+
+  <button onclick="ejercicio17()">Ejercicio 17</button>
+  <pre id="ej17"></pre>
+
+  <button onclick="ejercicio18()">Ejercicio 18</button>
+  <pre id="ej18"></pre>
+
+  <button onclick="ejercicio19()">Ejercicio 19</button>
+  <pre id="ej19"></pre>
+
+  <button onclick="ejercicio20()">Ejercicio 20</button>
+  <pre id="ej20"></pre>
+
+ <button onclick="ejercicio21()">Ejercicio 21</button>
+  <pre id="ej21"></pre>
+
+  <button onclick="ejercicio22()">Ejercicio 22</button>
+  <pre id="ej22"></pre>
+
+  <button onclick="ejercicio23()">Ejercicio 23</button>
+  <pre id="ej23"></pre>
+
+  <button onclick="ejercicio24()">Ejercicio 24</button>
+  <pre id="ej24"></pre>
+
+  <button onclick="ejercicio25()">Ejercicio 25</button>
+  <pre id="ej25"></pre>
+
+  <button onclick="ejercicio26()">Ejercicio 26</button>
+  <pre id="ej26"></pre>
+
+  <button onclick="ejercicio27()">Ejercicio 27</button>
+  <pre id="ej27"></pre>
+
+  <button onclick="ejercicio28()">Ejercicio 28</button>
+  <pre id="ej28"></pre>
+
+  <button onclick="ejercicio29()">Ejercicio 29</button>
+  <pre id="ej29"></pre>
+
+  <button onclick="ejercicio30()">Ejercicio 30</button>
+  <pre id="ej30"></pre>
+
+</h2>
+  <script>
+
+/*1. Número positivo o negativo
+Qué hacer: Leer un número y mostrar si es positivo o negativo.*/
+
+
+    function ejercicio1() {
+      let num = Number(prompt("Ingrese un número:"));
+      let resultado = "";
+
+      if (num > 0) {
+        resultado = "El número " + num + " es positivo.";
+      } else if (num === 0) {
+        resultado = "El número " + num + " es cero.";
+      } else {
+        resultado = "El número " + num + " es negativo.";
+      }
+
+      document.getElementById("ej1").innerText = resultado;
+    }
+
+
+/*2. N compras de lápices
+Leer la cantidad de lápices en N pedidos y calcular el costo total en cada caso.*/
+
+    function ejercicio2() {
+      let cantidad = Number(prompt("Ingrese la cantidad de lápices:"));
+      let precioUnitario = 0;
+      let total = 0;
+      let resultado = "";
+
+      if (cantidad >= 1000) {
+        precioUnitario = 0.85;
+      } else {
+        precioUnitario = 0.90;
+      }
+
+      total = cantidad * precioUnitario;
+      resultado = "Total a pagar: $" + total.toFixed(2);
+
+      document.getElementById("ej2").innerText = resultado;
+    }
+
+
+/*3. Descuento en trajes
+Qué hacer: Leer el precio de un traje y aplicar descuento.
+$2500 → 15%
+≤$2500 → 8%.*/
+
+    function ejercicio3() {
+      let traje = Number(prompt("Ingrese el precio del traje:"));
+      let descuento = 0;
+      let total = 0;
+      let resultado = "";
+
+      if (traje > 2500) {
+        descuento = traje * 0.15;
+      } else {
+        descuento = traje * 0.08;
+      }
+
+      total = traje - descuento;
+      resultado = "Precio total es: " + total + ".";
+      document.getElementById("ej3").innerText = resultado;
+    }
+
+/*4. Costo de viaje por autobuses
+Qué hacer: Leer tipo de autobús (A, B o C), distancia y cantidad de personas.
+Tipo A: $2.0/km/persona
+Tipo B: $2.5/km/persona
+Tipo C: $3.0/km/persona
+Si hay menos de 20 personas, cobrar como si fueran 20.*/
+
+    function ejercicio4() {
+      let tipo = prompt("Ingrese el tipo de autobús (A, B o C):").toUpperCase();
+      let distancia = Number(prompt("Ingrese la distancia del viaje en km:"));
+      let personas = Number(prompt("Ingrese el número de personas:"));
+      let tarifa = 0;
+      let total = 0;
+      let resultado = "";
+
+      if (personas < 20) {
+        personas = 20;
+      }
+
+      if (tipo === "A") {
+        tarifa = 2;
+      } else if (tipo === "B") {
+        tarifa = 2.5;
+      } else if (tipo === "C") {
+        tarifa = 3;
+      } else {
+        resultado = "Tipo de bus inválido.";
+      }
+
+      if (tarifa > 0) {
+        total = tarifa * distancia * personas;
+        resultado = "El total es: " + total + ".";
+      }
+
+      document.getElementById("ej4").innerText = resultado;
+    }
+
+
+/*5. Consultorio médico – costo de citas
+Qué hacer: Leer el número de la cita y calcular su costo y el acumulado.
+1 a 3 → $200
+4 a 5 → $150
+6 a 8 → $100
+9 en adelante → $50
+*/
+
+    function ejercicio5() {
+      let cita = Number(prompt("Ingrese el número de la cita:"));
+      let precio = 0;
+      let acumulado = 0;
+      let costo = 0;
+      let resultado = "";
+
+      for (let i = 1; i <= cita; i++) {
+        if (i >= 1 && i <= 3) {
+          costo = 200;
+        } else if (i >= 4 && i <= 5) {
+          costo = 150;
+        } else if (i >= 6 && i <= 8) {
+          costo = 100;
+        } else {
+          costo = 50;
+        }
+
+        acumulado += costo;
+
+        if (i === cita) {
+          precio = costo;
+        }
+      }
+
+      resultado = "El precio de la cita " + cita + " es $" + precio + ". Acumulado: $" + acumulado + ".";
+      document.getElementById("ej5").innerText = resultado;
+    }
+
+/*6. Fábrica El Cometa – precio de venta
+Qué hacer: Calcular el costo de producción y el precio de venta según clave (1–6).
+Ejemplo (clave 3, materia prima $1000):
+Mano de obra = 75% de MP = $750
+Gastos de fabricación = 35% de MP = $350
+Costo producción = $2100
+Precio de venta = $3045
+*/
+
+    function ejercicio6() {
+      let clave = Number(prompt("Ingrese la clave del producto (1 a 6):"));
+      let materiaPrima = Number(prompt("Ingrese el costo de la materia prima:"));
+      let porcentajeMO = 0;
+      let porcentajeGF = 0;
+      let total = "";
+
+      switch (clave) {
+        case 1:
+          porcentajeMO = 0.80;
+          porcentajeGF = 0.20;
+          break;
+        case 2:
+          porcentajeMO = 0.85;
+          porcentajeGF = 0.25;
+          break;
+        case 3:
+          porcentajeMO = 0.70;
+          porcentajeGF = 0.30;
+          break;
+        case 4:
+          porcentajeMO = 0.80;
+          porcentajeGF = 0.23;
+          break;
+        case 5:
+          porcentajeMO = 0.75;
+          porcentajeGF = 0.28;
+          break;
+        case 6:
+          porcentajeMO = 0.60;
+          porcentajeGF = 0.35;
+          break;
+        default:
+          total = "Clave inválida.";
+      }
+
+      if (clave >= 1 && clave <= 6) {
+        let ManoObra = porcentajeMO * materiaPrima;
+        let GastosFabricación = porcentajeGF * materiaPrima;
+        let CostoProducción = ManoObra + materiaPrima + GastosFabricación;
+        let PrecioVenta = CostoProducción * 1.45;
+
+        total = "Materia prima: " + materiaPrima + ".\n" +
+              "Mano de obra: " + ManoObra + ".\n" +
+              "Gastos de fabricación: " + GastosFabricación + ".\n" +
+              "Costos de producción: " + CostoProducción + ".\n" +
+              "Precio de venta: " + PrecioVenta + ".";
+      }
+
+      document.getElementById("ej6").innerText = total;
+    }
+
+/*7. Banco XYZ – aumento de crédito
+Qué hacer: Leer tipo de tarjeta y calcular el nuevo límite de crédito.
+Tipo 1 → 25%
+Tipo 2 → 35%
+Tipo 3 → 40%
+Otro → 50%
+*/
+
+    function ejercicio7() {
+      let tipoTarjeta = Number(prompt("Ingrese el tipo de tarjeta (1 a 4):"));
+      let creditoActual = Number(prompt("Ingrese el crédito actual:"));
+      let porcentaje = 0;
+      let resultado = "";
+
+      if (tipoTarjeta === 1) {
+        porcentaje = 0.25;
+      } else if (tipoTarjeta === 2) {
+        porcentaje = 0.35;
+      } else if (tipoTarjeta === 3) {
+        porcentaje = 0.40;
+      } else {
+        porcentaje = 0.50;
+      }
+
+      let nuevoCredito = creditoActual * (1 + porcentaje);
+      resultado = "Nuevo crédito: $" + nuevoCredito.toFixed(2);
+      document.getElementById("ej7").innerText = resultado;
+    }
+
+/*8. Paquetería internacional – costo de envío
+Qué hacer: Calcular costo según peso y zona.
+Restricción: peso ≤ 5 kg.*/
+
+    function ejercicio8() {
+      let peso = Number(prompt("Ingrese el peso del paquete (kg):"));
+      let zona = prompt("Ingrese la zona (América del Norte, América Central, América del Sur, Europa, Asia):");
+      let costoPorKg = 0;
+      let costoTotal = 0;
+      let resultado = "";
+
+      if (peso > 5) {
+        resultado = "Error: el paquete excede los 5 kg.";
+      } else {
+        if (zona === "America del norte") {
+          costoPorKg = 100;
+        } else if (zona === "America central") {
+          costoPorKg = 120;
+        } else if (zona === "America del sur") {
+          costoPorKg = 150;
+        } else if (zona === "Europa") {
+          costoPorKg = 60;
+        } else if (zona === "Asia") {
+          costoPorKg = 200;
+        } else {
+          resultado = "Zona inválida";
+        }
+
+        if (costoPorKg > 0) {
+          costoTotal = peso * costoPorKg;
+          resultado = "Costo envío: $" + costoTotal.toFixed(2);
+        }
+      }
+      document.getElementById("ej8").innerText = resultado;
+    }
+
+/*9. Clasificación de edades
+Qué hacer: Leer una edad y clasificar.
+1–3 → Infante
+4–13 → Niño
+14–17 → Adolescente
+18–35 → Joven
+36–64 → Adulto
+65+ → Adulto mayor
+*/
+
+    function ejercicio9() {
+      let edad = Number(prompt("Ingrese la edad:"));
+      let clasificacion = "";
+
+      if (edad >= 1 && edad <= 3) {
+        clasificacion = "Infante";
+      } else if (edad >= 4 && edad <= 13) {
+        clasificacion = "Niño";
+      } else if (edad >= 14 && edad <= 17) {
+        clasificacion = "Adolescente";
+      } else if (edad >= 18 && edad <= 35) {
+        clasificacion = "Joven";
+      } else if (edad >= 36 && edad <= 64) {
+        clasificacion = "Adulto";
+      } else if (edad >= 65) {
+        clasificacion = "Adulto mayor";
+      } else {
+        clasificacion = "Edad inválida";
+      }
+
+      document.getElementById("ej9").innerText = "Edad: " + edad + " → " + clasificacion;
+    }
+
+/*10. Número equivalente a días de la semana
+Qué hacer: Leer un número y mostrar el día de la semana.*/
+
+    function ejercicio10() {
+      let numeroDia = Number(prompt("Ingrese un número del 1 al 7:"));
+      let diaSemana = "";
+
+      if (numeroDia === 1) {
+        diaSemana = "Lunes";
+      } else if (numeroDia === 2) {
+        diaSemana = "Martes";
+      } else if (numeroDia === 3) {
+        diaSemana = "Miércoles";
+      } else if (numeroDia === 4) {
+        diaSemana = "Jueves";
+      } else if (numeroDia === 5) {
+        diaSemana = "Viernes";
+      } else if (numeroDia === 6) {
+        diaSemana = "Sábado";
+      } else if (numeroDia === 7) {
+        diaSemana = "Domingo";
+      } else {
+        diaSemana = "Error: número fuera de rango";
+      }
+
+      document.getElementById("ej10").innerText = "Número ingresado: " + numeroDia + " → Día de la semana: " + diaSemana;
+    }
+
+
+/*11. N números positivos o negativos
+Leer N números y mostrar para cada uno si es positivo o negativo.
+*/
+
+function ejercicio11() {
+  let cantidad = Number(prompt("¿Cuántos números deseas ingresar?"));
+  let resultado = "";
+  let i = 0;
+
+  while (i < cantidad) {
+    let num = Number(prompt(`Ingrese el número ${i + 1}:`));
+    if (num > 0) {
+      resultado += `${num} es positivo\n`;
+    } else if (num < 0) {
+      resultado += `${num} es negativo\n`;
+    } else {
+      resultado += `${num} es neutro\n`;
+    }
+    i++;
+  }
+
+  document.getElementById("ej11").innerText = resultado;
+}
+
+
+/*12. N compras de lápices
+Leer la cantidad de lápices en N pedidos y calcular el costo total en cada caso.
+*/
+
+function ejercicio12() {
+  let cantidadPedidos = Number(prompt("¿Cuántos pedidos de lápices deseas ingresar?"));
+  let resultado = "";
+  let i = 0;
+
+  while (i < cantidadPedidos) {
+    let cantidad = Number(prompt(`Ingrese la cantidad de lápices para el pedido ${i + 1}:`));
+    let total = 0;
+
+    if (cantidad >= 1000) {
+      total = cantidad * 0.85;
+    } else {
+      total = cantidad * 0.90;
+    }
+
+    resultado += `Pedido ${i + 1}: $${total.toFixed(2)}\n`;
+    i++;
+  }
+
+  document.getElementById("ej12").innerText = resultado;
+}
+
+
+/*13. N compras de trajes
+Procesar el precio de N trajes y calcular el descuento en cada uno.
+*/
+
+function ejercicio13() {
+  let cantidadTrajes = Number(prompt("¿Cuántos precios de trajes deseas ingresar?"));
+  let resultado = "";
+  let i = 0;
+
+  while (i < cantidadTrajes) {
+    let precio = Number(prompt(`Ingrese el precio del traje ${i + 1}:`));
+    let descuento = precio > 2500 ? 0.15 : 0.08;
+    let total = precio - (precio * descuento);
+    resultado += `Traje ${i + 1}: $${total.toFixed(2)}\n`;
+    i++;
+  }
+
+  document.getElementById("ej13").innerText = resultado;
+}
+
+
+/*14. N viajes en autobús
+Calcular el costo de N viajes, pidiendo datos de cada viaje.
+*/
+
+function ejercicio14() {
+  let cantidadViajes = Number(prompt("¿Cuántos viajes deseas ingresar?"));
+  let resultado = "";
+  let i = 0;
+
+  while (i < cantidadViajes) {
+    let tipo = prompt(`Ingrese el tipo de autobús (A, B o C) para el viaje ${i + 1}:`).toUpperCase();
+    let km = Number(prompt(`Ingrese la distancia en km para el viaje ${i + 1}:`));
+    let personas = Number(prompt(`Ingrese el número de personas para el viaje ${i + 1}:`));
+
+    if (personas < 20) {
+      personas = 20;
+    }
+
+    let tarifa = 0;
+    if (tipo === "A") {
+      tarifa = 2;
+    } else if (tipo === "B") {
+      tarifa = 2.5;
+    } else if (tipo === "C") {
+      tarifa = 3;
+    } else {
+      resultado += `Viaje ${i + 1}: Tipo de bus inválido.\n`;
+      i++;
+      continue;
+    }
+
+    let costoTotal = tarifa * km * personas;
+    let costoPersona = costoTotal / personas;
+
+    resultado += `Viaje ${i + 1}: Costo total $${costoTotal.toFixed(2)} – Costo por persona $${costoPersona.toFixed(2)}\n`;
+    i++;
+  }
+
+  document.getElementById("ej14").innerText = resultado;
+}
+
+
+/*15. N pacientes en consultorio
+Procesar el costo de la cita y acumulado para N pacientes, según el número de cita de cada uno.
+*/
+
+function ejercicio15() {
+  let cantidadCitas = Number(prompt("¿Cuántas citas deseas ingresar?"));
+  let acumulado = 0;
+  let resultado = "";
+  let i = 0;
+
+  while (i < cantidadCitas) {
+    let numero = Number(prompt(`Ingrese el número de la cita ${i + 1}:`));
+    let costo = 0;
+
+    if (numero >= 1 && numero <= 3) {
+      costo = 200;
+    } else if (numero >= 4 && numero <= 5) {
+      costo = 150;
+    } else if (numero >= 6 && numero <= 8) {
+      costo = 100;
+    } else {
+      costo = 50;
+    }
+
+    acumulado += costo;
+    resultado += `Cita ${numero}: $${costo} – Acumulado: $${acumulado}\n`;
+    i++;
+  }
+
+  document.getElementById("ej15").innerText = resultado;
+}
+
+
+/*16. N artículos de la Fábrica El Cometa
+Procesar N artículos y calcular precio de venta para cada uno.
+*/
+
+function ejercicio16() {
+  let n = Number(prompt("¿Cuántos artículos deseas ingresar?"));
+  let resultado = "";
+  let i = 0;
+
+  while (i < n) {
+    let clave = Number(prompt(`Artículo ${i + 1}: Ingrese la clave (1 a 6):`));
+    let mp = Number(prompt(`Artículo ${i + 1}: Ingrese costo de materia prima:`));
+    let mo = 0, gf = 0;
+
+    if (clave === 1) {
+      mo = 0.80; gf = 0.20;
+    } else if (clave === 2) {
+      mo = 0.85; gf = 0.25;
+    } else if (clave === 3) {
+      mo = 0.70; gf = 0.30;
+    } else if (clave === 4) {
+      mo = 0.80; gf = 0.23;
+    } else if (clave === 5) {
+      mo = 0.75; gf = 0.28;
+    } else if (clave === 6) {
+      mo = 0.60; gf = 0.35;
+    } else {
+      resultado += `Artículo ${i + 1}: Clave inválida\n`;
+      i++;
+      continue;
+    }
+
+    let costoProduccion = mp + (mp * mo) + (mp * gf);
+    let precioVenta = costoProduccion * 1.45;
+
+    resultado += `Artículo ${i + 1}: Precio de venta = $${precioVenta.toFixed(2)}\n`;
+    i++;
+  }
+
+  document.getElementById("ej16").innerText = resultado;
+}
+
+
+/*17. N clientes del Banco XYZ
+Leer datos de N clientes (tipo de tarjeta y crédito actual) y mostrar su nuevo límite.
+*/
+
+function ejercicio17() {
+  let n = Number(prompt("¿Cuántos clientes deseas ingresar?"));
+  let resultado = "";
+  let i = 0;
+
+  while (i < n) {
+    let tipo = Number(prompt(`Cliente ${i + 1}: Ingrese tipo de tarjeta (1 a 4):`));
+    let credito = Number(prompt(`Cliente ${i + 1}: Ingrese crédito actual:`));
+    let aumento = 0;
+
+    if (tipo === 1) {
+      aumento = 0.25;
+    } else if (tipo === 2) {
+      aumento = 0.35;
+    } else if (tipo === 3) {
+      aumento = 0.40;
+    } else {
+      aumento = 0.50;
+    }
+
+    let nuevoCredito = credito * (1 + aumento);
+    resultado += `Cliente ${i + 1}: Nuevo crédito $${nuevoCredito.toFixed(2)}\n`;
+    i++;
+  }
+
+  document.getElementById("ej17").innerText = resultado;
+}
+
+
+/*18. N paquetes en paquetería
+Calcular el costo de envío para N paquetes, validando que no excedan 5 kg.
+*/
+
+function ejercicio18() {
+  let n = Number(prompt("¿Cuántos paquetes deseas ingresar?"));
+  let resultado = "";
+  let i = 0;
+
+  while (i < n) {
+    let peso = Number(prompt(`Paquete ${i + 1}: Ingrese peso en kg:`));
+    let zona = prompt(`Paquete ${i + 1}: Ingrese zona (América del Norte, América Central, América del Sur, Europa, Asia):`);
+
+    if (peso > 5) {
+      resultado += `Paquete ${i + 1}: Error, excede 5 kg\n`;
+      i++;
+      continue;
+    }
+
+    let tarifa = 0;
+    if (zona === "America del norte") {
+      tarifa = 100;
+    } else if (zona === "America central") {
+      tarifa = 120;
+    } else if (zona === "America del sur") {
+      tarifa = 150;
+    } else if (zona === "Europa") {
+      tarifa = 60;
+    } else if (zona === "Asia") {
+      tarifa = 200;
+    } else {
+      resultado += `Paquete ${i + 1}: Zona inválida\n`;
+      i++;
+      continue;
+    }
+
+    let costo = peso * tarifa;
+    resultado += `Paquete ${i + 1}: Costo envío $${costo.toFixed(2)}\n`;
+    i++;
+  }
+
+  document.getElementById("ej18").innerText = resultado;
+}
+
+
+/*19. N personas con clasificación de edades
+Leer edades de N personas y mostrar su categoría.*/
+
+function ejercicio19() {
+  let n = Number(prompt("¿Cuántas edades deseas ingresar?"));
+  let resultado = "";
+  let i = 0;
+
+  while (i < n) {
+    let edad = Number(prompt(`Edad ${i + 1}:`));
+    let categoria = "";
+
+    if (edad >= 1 && edad <= 3) {
+      categoria = "Infante";
+    } else if (edad <= 13) {
+      categoria = "Niño";
+    } else if (edad <= 17) {
+      categoria = "Adolescente";
+    } else if (edad <= 35) {
+      categoria = "Joven";
+    } else if (edad <= 64) {
+      categoria = "Adulto";
+    } else {
+      categoria = "Adulto mayor";
+    }
+
+    resultado += `${edad} → ${categoria}\n`;
+    i++;
+  }
+
+  document.getElementById("ej19").innerText = resultado;
+}
+
+
+/*20. N números → días de la semana
+Leer N números y mostrar el día correspondiente para cada uno.
+*/
+
+function ejercicio20() {
+  let n = Number(prompt("¿Cuántos números deseas ingresar para días de la semana?"));
+  let resultado = "";
+  let i = 0;
+
+  while (i < n) {
+    let num = Number(prompt(`Número ${i + 1} (1-7):`));
+    let dia = "";
+
+    if (num === 1) {
+      dia = "Lunes";
+    } else if (num === 2) {
+      dia = "Martes";
+    } else if (num === 3) {
+      dia = "Miércoles";
+    } else if (num === 4) {
+      dia = "Jueves";
+    } else if (num === 5) {
+      dia = "Viernes";
+    } else if (num === 6) {
+      dia = "Sábado";
+    } else if (num === 7) {
+      dia = "Domingo";
+    } else {
+      dia = "Error: número fuera de rango";
+    }
+
+    resultado += `${num} → ${dia}\n`;
+    i++;
+  }
+
+  document.getElementById("ej20").innerText = resultado;
+}
+
+
+
+/*21. Clasificación de números en un arreglo
+Qué hacer: Dado un arreglo con N números, mostrar para cada uno si es positivo, negativo o neutro.
+*/
+
+function ejercicio21() {
+  let n = Number(prompt("¿Cuántos números vas a ingresar?"));
+  let numeros = [];
+  let i = 0;
+
+  while (i < n) {
+    numeros.push(Number(prompt("Número " + (i + 1) + ":")));
+    i++;
+  }
+
+  let resultado = "";
+  for (let num of numeros) {
+    if (num > 0) {
+      resultado += num + " es positivo\n";
+    } else if (num < 0) {
+      resultado += num + " es negativo\n";
+    } else {
+      resultado += num + " es neutro\n";
+    }
+  }
+
+  document.getElementById("ej21").innerText = resultado;
+}
+
+
+/*22. Costo de pedidos de lápices en arreglo
+Qué hacer: Dado un arreglo con la cantidad de lápices de varios pedidos, calcular el costo total de cada uno.
+*/
+
+function ejercicio22() {
+  let n = Number(prompt("¿Cuántos pedidos de lápices?"));
+  let pedidos = [];
+  let i = 0;
+
+  while (i < n) {
+    pedidos.push(Number(prompt("Cantidad del pedido " + (i + 1) + ":")));
+    i++;
+  }
+
+  let resultado = "";
+  i = 0;
+  while (i < pedidos.length) {
+    let cantidad = pedidos[i];
+    let precio = cantidad >= 1000 ? 0.85 : 0.90;
+    let total = cantidad * precio;
+    resultado += "Pedido " + (i + 1) + ": $" + total.toFixed(2) + "\n";
+    i++;
+  }
+
+  document.getElementById("ej22").innerText = resultado;
+}
+
+
+/*23. Precios de trajes en arreglo
+Qué hacer: Dado un arreglo con los precios de N trajes, calcular el precio final aplicando el descuento correspondiente.
+*/
+
+function ejercicio23() {
+  let n = Number(prompt("¿Cuántos trajes vas a registrar?"));
+  let trajes = [];
+  let i = 0;
+
+  while (i < n) {
+    trajes.push(Number(prompt("Precio del traje " + (i + 1) + ":")));
+    i++;
+  }
+
+  let resultado = "";
+  i = 0;
+  while (i < trajes.length) {
+    let precio = trajes[i];
+    let descuento = precio > 2500 ? 0.15 : 0.08;
+    let total = precio - (precio * descuento);
+    resultado += "Traje " + (i + 1) + ": $" + total.toFixed(2) + "\n";
+    i++;
+  }
+
+  document.getElementById("ej23").innerText = resultado;
+}
+
+
+/*24. Datos de viajes en arreglo
+Qué hacer: Guardar en un arreglo los viajes (tipo autobús, km, personas) y calcular el costo total y por persona de cada viaje.
+*/
+
+function ejercicio24() {
+  let n = Number(prompt("¿Cuántos viajes deseas ingresar?"));
+  let viajes = [];
+  let i = 0;
+
+  while (i < n) {
+    let tipo = prompt("Tipo de autobús (A, B o C) para viaje " + (i + 1) + ":").toUpperCase();
+    let km = Number(prompt("Distancia en km del viaje " + (i + 1) + ":"));
+    let personas = Number(prompt("Número de personas para viaje " + (i + 1) + ":"));
+    viajes.push([tipo, km, personas]);
+    i++;
+  }
+
+  let resultado = "";
+  i = 0;
+  while (i < viajes.length) {
+    let [tipo, km, personas] = viajes[i];
+    if (personas < 20) personas = 20;
+
+    let tarifa = 0;
+    if (tipo === "A") tarifa = 2;
+    else if (tipo === "B") tarifa = 2.5;
+    else if (tipo === "C") tarifa = 3;
+    else {
+      resultado += "Viaje " + (i + 1) + ": Tipo inválido\n";
+      i++;
+      continue;
+    }
+
+    let total = tarifa * km * personas;
+    let porPersona = total / personas;
+
+    resultado += `Viaje ${i + 1}: Total $${total}, por persona $${porPersona.toFixed(2)}\n`;
+    i++;
+  }
+
+  document.getElementById("ej24").innerText = resultado;
+}
+
+
+/*25. Citas médicas en arreglo
+Qué hacer: Guardar en un arreglo los números de cita de varios pacientes y calcular el costo y acumulado de cada una.
+*/
+
+function ejercicio25() {
+  let n = Number(prompt("¿Cuántas citas quieres registrar?"));
+  let citas = [];
+  let i = 0;
+
+  while (i < n) {
+    citas.push(Number(prompt("Número de la cita del paciente " + (i + 1) + ":")));
+    i++;
+  }
+
+  let resultado = "";
+  let acumulado = 0;
+  i = 0;
+
+  while (i < citas.length) {
+    let cita = citas[i];
+    let costo = 0;
+    if (cita >= 1 && cita <= 3) {
+      costo = 200;
+    } else if (cita <= 5) {
+      costo = 150;
+    } else if (cita <= 8) {
+      costo = 100;
+    } else {
+      costo = 50;
+    }
+    acumulado += costo;
+    resultado += `Cita ${cita}: $${costo}, Acumulado: $${acumulado}\n`;
+    i++;
+  }
+
+  document.getElementById("ej25").innerText = resultado;
+}
+
+
+/*26. Artículos de la fábrica en arreglo
+Qué hacer: Dado un arreglo con tuplas (clave, materia prima), calcular el precio de venta de cada artículo.
+*/
+
+function ejercicio26() {
+  let n = Number(prompt("¿Cuántos artículos deseas ingresar?"));
+  let articulos = [];
+  let resultados = "";
+  let i = 0;
+
+  while (i < n) {
+    let clave = Number(prompt(`Artículo ${i + 1}: Ingrese clave (1 a 6)`));
+    let mp = Number(prompt(`Artículo ${i + 1}: Ingrese costo de materia prima`));
+    articulos.push([clave, mp]);
+    i++;
+  }
+
+  i = 0;
+  while (i < articulos.length) {
+    let [clave, mp] = articulos[i];
+    let mo = 0, gf = 0;
+
+    if (clave === 1) { mo = 0.80; gf = 0.20; }
+    else if (clave === 2) { mo = 0.85; gf = 0.25; }
+    else if (clave === 3) { mo = 0.70; gf = 0.30; }
+    else if (clave === 4) { mo = 0.80; gf = 0.23; }
+    else if (clave === 5) { mo = 0.75; gf = 0.28; }
+    else if (clave === 6) { mo = 0.60; gf = 0.35; }
+    else {
+      resultados += `Artículo ${i + 1}: Clave inválida\n`;
+      i++;
+      continue;
+    }
+
+    let costo = mp + (mp * mo) + (mp * gf);
+    resultados += `Artículo ${i + 1}: Precio de venta = $${costo.toFixed(2)}\n`;
+    i++;
+  }
+
+  document.getElementById("ej26").innerText = resultados;
+}
+
+
+/*27. Clientes del banco en arreglo
+Qué hacer: Dado un arreglo con tuplas (tipo tarjeta, crédito actual), calcular el nuevo límite de crédito de cada cliente.
+*/
+
+function ejercicio27() {
+  let n = Number(prompt("¿Cuántos clientes deseas ingresar?"));
+  let clientes = [];
+  let i = 0;
+
+  while (i < n) {
+    let tipo = Number(prompt(`Cliente ${i + 1}: Ingrese tipo de tarjeta (1-3)`));
+    let credito = Number(prompt(`Cliente ${i + 1}: Ingrese crédito actual`));
+    clientes.push([tipo, credito]);
+    i++;
+  }
+
+  i = 0;
+  while (i < clientes.length) {
+    let [tipo, credito] = clientes[i];
+    let aumento = 0;
+
+    if (tipo === 1) { aumento = 0.25; }
+    else if (tipo === 2) { aumento = 0.35; }
+    else if (tipo === 3) { aumento = 0.40; }
+    else { aumento = 0.50; }
+
+    let nuevo = credito * (1 + aumento);
+    console.log(`Cliente ${i + 1}: Nuevo crédito = $${nuevo.toFixed(2)}`);
+    i++;
+  }
+}
+
+
+/*28. Paquetes de paquetería en arreglo
+Qué hacer: Dado un arreglo con tuplas (peso, zona), calcular el costo de envío de cada paquete, siempre que el peso ≤ 5 kg.
+*/
+
+function ejercicio28() {
+  let n = Number(prompt("¿Cuántos paquetes deseas ingresar?"));
+  let paquetes = [];
+  let i = 0;
+  let resultado = "";
+
+  while (i < n) {
+    let peso = Number(prompt(`Paquete ${i + 1}: Ingrese el peso (kg)`));
+    let zona = prompt(`Paquete ${i + 1}: Ingrese la zona (Europa, Asia, América del Norte, América Central, América del Sur)`);
+    paquetes.push([peso, zona]);
+    i++;
+  }
+
+  i = 0;
+  while (i < paquetes.length) {
+    let [peso, zona] = paquetes[i];
+
+    if (peso > 5) {
+      resultado += `Paquete ${i + 1}: Error, excede 5 kg\n`;
+      i++;
+      continue;
+    }
+
+    let tarifa = 0;
+    switch (zona.toLowerCase()) {
+      case "américa del norte":
+      case "america del norte":
+        tarifa = 100;
+        break;
+      case "américa central":
+      case "america central":
+        tarifa = 120;
+        break;
+      case "américa del sur":
+      case "america del sur":
+        tarifa = 150;
+        break;
+      case "europa":
+        tarifa = 60;
+        break;
+      case "asia":
+        tarifa = 200;
+        break;
+      default:
+        resultado += `Paquete ${i + 1}: Zona inválida\n`;
+        i++;
+        continue;
+    }
+
+    let costo = peso * tarifa;
+    resultado += `Paquete ${i + 1}: Costo de envío = $${costo.toFixed(2)}\n`;
+    i++;
+  }
+
+  document.getElementById("ej28").innerText = resultado;
+}
+
+
+/*29. Clasificación de edades en arreglo
+Qué hacer: Dado un arreglo con las edades de varias personas, mostrar su categoría (Infante, Niño, Adolescente, Joven, Adulto, Adulto mayor).
+*/
+
+function ejercicio29() {
+  let n = Number(prompt("¿Cuántas edades deseas ingresar?"));
+  let edades = [];
+  let resultado = "";
+  let i = 0;
+
+
+  while (i < n) {
+    let edad = Number(prompt(`Edad ${i + 1}: Ingrese la edad`));
+    edades.push(edad);
+    i++;
+  }
+
+  i = 0;
+
+  while (i < edades.length) {
+    let edad = edades[i];
+    let cat = "";
+
+    switch (true) {
+      case (edad >= 1 && edad <= 3): cat = "Infante"; break;
+      case (edad >= 4 && edad <= 13): cat = "Niño"; break;
+      case (edad >= 14 && edad <= 17): cat = "Adolescente"; break;
+      case (edad >= 18 && edad <= 35): cat = "Joven"; break;
+      case (edad >= 36 && edad <= 64): cat = "Adulto"; break;
+      case (edad >= 65): cat = "Adulto mayor"; break;
+      default: cat = "Edad inválida";
+    }
+
+    resultado += `Edad ${edad} → ${cat}\n`;
+    i++;
+  }
+
+  document.getElementById("ej29").innerText = resultado;
+}
+
+
+/*30. Días de la semana en arreglo
+Qué hacer: Dado un arreglo con números (1–7), mostrar el día correspondiente de la semana.*/
+
+
+function ejercicio30() {
+  let n = Number(prompt("¿Cuántos números deseas ingresar?"));
+  let numeros = [];
+  let i = 0;
+  let resultado = "";
+
+
+  while (i < n) {
+    let num = Number(prompt(`Número ${i + 1}: Ingrese número del 1 al 7`));
+    numeros.push(num);
+    i++;
+  }
+
+  i = 0;
+
+  while (i < numeros.length) {
+    let dia = "";
+    switch (numeros[i]) {
+      case 1: dia = "Lunes"; break;
+      case 2: dia = "Martes"; break;
+      case 3: dia = "Miércoles"; break;
+      case 4: dia = "Jueves"; break;
+      case 5: dia = "Viernes"; break;
+      case 6: dia = "Sábado"; break;
+      case 7: dia = "Domingo"; break;
+      default: dia = "Error";
+    }
+    resultado += `${numeros[i]} → ${dia}\n`;
+    i++;
+  }
+
+  document.getElementById("ej30").innerText = resultado;
+}
+
+  </script>
+</body>
+</html>
